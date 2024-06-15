@@ -43,7 +43,10 @@ public class BinarySearch {
 
         // 进入循环 则left<right
         while(left < right){
+            // 时间复杂度 O(logN)
             int middle = (left + right) / 2;
+            // 严格来说 middle=(left+right)/2的向下取整
+            // middle<=(left+right)/2<right
 
             // target < nums[middle]
             // 由升序可知 若target存在 则targetIndex<middle
