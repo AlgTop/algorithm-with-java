@@ -80,7 +80,7 @@ public class BinarySearch {
     public int binarySearchRightClosed(int[] nums, int target) {
         // 0 <= targetIndex <= nums.length-1 符合条件S
         int left = 0;
-        int right = nums.length;
+        int right = nums.length-1;
 
         while(left <= right){
             int middle = (left + right) / 2;
