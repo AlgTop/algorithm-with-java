@@ -2,6 +2,7 @@ package algorithm.data_structure.linked_list;
 
 /**
  * 单链表节点
+ * Leetcode 707 设计链表
  * */
 public class SinglyLinkedListNode {
     /**

@@ -35,6 +35,39 @@ public class MyDoublyLinkedList {
     }
 
     /**
+     * index=0,1,...,size-1时
+     * 返回index处节点val值
+     * 其余情况返回-1
+     * */
+    public int get(int index){
+        // 其余情况返回-1
+        if(index < 0 || index >= size) return -1;
+
+        // 遍历找到查询操作节点
+        // 从前往后找 遍历(index+1)次
+        // 从后往前找 遍历(size-index)次
+        DoublyLinkedListNode node = null;
+        // 前遍历
+        // 一般这个条件也写成 index>=size/2
+        if(index + 1 >= size - index) {
+            // 一共遍历(index+1)次就行 具体写法为了美观
+            node = head.next;
+            for(int i = 0; i < index; i++){
+                node = node.next;
+            }
+            // 后遍历
+        } else {
+            // 一共遍历(size-index)次就行 具体写法为了美观
+            node = tail;
+            for(int i = size; i > index; i--){
+                node = node.prev;
+            }
+        }
+
+        return node.val;
+    }
+
+    /**
      * index=0,1,...,size-1,size时
      * 表示在index处添加值为val的节点
      * 如果存在>index的节点 则依次后延
@@ -103,38 +136,5 @@ public class MyDoublyLinkedList {
         // 特殊情况: 删除节点<->尾节点 则前节点<->null 赋值过程并不需要特殊处理
         pre.next = pre.next.next;
         pre.next.prev = pre;
-    }
-
-    /**
-     * index=0,1,...,size-1时
-     * 返回index处节点val值
-     * 其余情况返回-1
-     * */
-    public int get(int index){
-        // 其余情况返回-1
-        if(index < 0 || index >= size) return -1;
-
-        // 遍历找到查询操作节点
-        // 从前往后找 遍历(index+1)次
-        // 从后往前找 遍历(size-index)次
-        DoublyLinkedListNode node = null;
-        // 前遍历
-        // 一般这个条件也写成 index>=size/2
-        if(index + 1 >= size - index) {
-            // 一共遍历(index+1)次就行 具体写法为了美观
-            node = head.next;
-            for(int i = 0; i < index; i++){
-                node = node.next;
-            }
-            // 后遍历
-        } else {
-            // 一共遍历(size-index)次就行 具体写法为了美观
-            node = tail;
-            for(int i = size; i > index; i--){
-                node = node.prev;
-            }
-        }
-
-        return node.val;
     }
 }
