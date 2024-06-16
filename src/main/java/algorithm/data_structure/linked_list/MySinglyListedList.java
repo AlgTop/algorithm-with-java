@@ -42,7 +42,7 @@ public class MySinglyListedList {
         size = size + 1;
 
         // 遍历找到增加操作的前节点
-        SinglyLinkedListNode pre = this.head;
+        SinglyLinkedListNode pre = head;
         for(int i = 0; i<index; i++){
             pre = pre.next;
         }
@@ -82,12 +82,31 @@ public class MySinglyListedList {
         size--;
 
         // 遍历找到删除操作的前节点
-        SinglyLinkedListNode pre = this.head;
-        for(int i = 0; i<index; i++){
+        SinglyLinkedListNode pre = head;
+        for(int i = 0; i < index; i++){
             pre = pre.next;
         }
 
         // 特殊情况: 删除节点指向null 则前节点也指向null 赋值过程并不需要特殊处理
         pre.next = pre.next.next;
+    }
+
+    /**
+     * index=0,1,...,size-1时
+     * 返回index处节点val值
+     * 其余情况返回-1
+     * */
+    public int get(int index){
+        // 其余情况返回-1
+        if(index < 0 || index >= size) return -1;
+
+        // 遍历找到查询操作节点
+        // 一共遍历(index+1)次就行 具体写法为了美观
+        SinglyLinkedListNode node = head.next;
+        for(int i = 0; i < index; i++){
+            node = node.next;
+        }
+
+        return node.val;
     }
 }
