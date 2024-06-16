@@ -2,6 +2,7 @@ package algorithm.data_structure.linked_list;
 
 /**
  * 双链表
+ * Leetcode 707 设计链表
  * */
 public class MyDoublyLinkedList {
     /**
