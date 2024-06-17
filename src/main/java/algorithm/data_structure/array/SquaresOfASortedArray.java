@@ -4,11 +4,12 @@ package algorithm.data_structure.array;
  * Leetcode 977 有序数组的平方
  * nums非递减排序
  * 返回由nums元素的平方组成的新数组
- * 要求新数组也是非递减排序
+ * 且新数组也是非递减排序
  * */
 public class SquaresOfASortedArray {
     /**
      * 双指针法
+     * nums元素的平方中的最大值一定是原数组的最小值或最大值
      * */
     public int[] sortedSquares(int[] nums) {
         int[] squaresNums = new int[nums.length];
@@ -22,7 +23,6 @@ public class SquaresOfASortedArray {
         // 等价条件 newIndex==0
         while(left <= right) {
             // 二者是squaresNums未赋值的数字中最大的两个候选人
-            // nums[left]<=0 nums[right]>=0
             int leftSquares = nums[left] * nums[left];
             int rightSquares = nums[right] * nums[right];
 
